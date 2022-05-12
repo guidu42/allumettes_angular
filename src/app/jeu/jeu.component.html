@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="my-5 text-center">Jeu</h2>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <p class="text-center">{{game?.currentPlayer}}</p>
+    </div>
+<!--    <div class="col-3">-->
+<!--      <button class="btn btn-dark me-2" (click)="game.lessAllumettes(1)" [disabled]="game?.winner != ''">1</button>-->
+<!--      <button class="btn btn-dark me-2" (click)="game.lessAllumettes(2)" [disabled]="game?.winner != ''">2</button>-->
+<!--      <button class="btn btn-dark" (click)="game.lessAllumettes(3)" [disabled]="game?.winner != ''">3</button>-->
+<!--    </div>-->
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <p class="text-center">Nombre d'allumettes restantes: {{game?.nbAllumettes}}</p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <p class="text-center" [hidden]="game?.winner == ''">Le gagnant est {{game?.winner}}</p>
+    </div>
+  </div>
+
+  <div class="board">
+    <div *ngFor="let allumette of allumettes; let i = index" class="allumettes" [class.is-selected]="allumette.selected" (mouseover)="isSelected(i)" (mousedown)="startSelection(i)" (mouseup)="endSelection(i)"><span></span></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-3 text-center">
+      <button class="btn btn-primary my-3" (click)="destroySelected()" [disabled]="allumettesSelected==0 || allumettesSelected>3">Valider</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<app-params (paramGame)="loadParam($event)" [hidden]="newGame"></app-params>
+<app-jeu [paramGame]="paramJeu" [hidden]="!newGame"></app-jeu>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-3 text-center">
+      <button class="btn btn-danger" [hidden]="!newGame" (click)="newGame = !newGame">Recommencez la partie</button>
+    </div>
+  </div>
+</div>

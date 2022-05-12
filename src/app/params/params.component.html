@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-3">
+      <h2>Paramètrages de jeu: </h2>
+    </div>
+    <div class="col-1">
+      <button class="btn btn-danger" routerLink="/regles">Règles du jeu</button>
+    </div>
+  </div>
+
+    <form [formGroup]="game">
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <label>Nombre d'allumettes: </label>
+          <input type="text"
+                 [formControlName]="'_allumettes'"
+                 name="nbAllumettes"
+                 class="form-control"
+                 placeholder="nombre d'allumettes"
+                 [class.is-invalid]="allumettes.invalid">
+
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2">
+          <label>Joueur 1: </label>
+          <input type="text"
+                 [formControlName]="'_player1'"
+                 name="player1"
+                 class="form-control"
+                 placeholder="nom du joueur 1"
+                 [class.is-invalid]="player1.invalid">
+        </div>
+        <div class="col-2">
+          <label>Joueur 2: </label>
+          <input type="text"
+                 [formControlName]="'_player2'"
+                 name="player1"
+                 class="form-control"
+                 placeholder="nom du joueur 2"
+                 [class.is-invalid]="player2.invalid">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-3 text-center">
+          <button class="btn btn-primary mt-3" [disabled]="game.invalid" (click)="onSubmit()">Start !</button>
+        </div>
+      </div>
+    </form>
+</div>
